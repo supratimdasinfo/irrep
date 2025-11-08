@@ -128,6 +128,12 @@ do not hesitate to contact the author:
     'Only used if code is "gpaw".',
 )
 @click.option(
+    "--spinchannel",
+    type=str,
+    default=None,
+    help="Select spin channel for spin-polarised QE: 'up' or 'dw'."
+)
+@click.option(
     "-prefix",
     type=str,
     help="Prefix used for Quantum Espresso calculations (data should be in prefix.save) or seedname of Wannier90 files. ",
@@ -338,6 +344,7 @@ def cli(
     fpos,
     fwfk,
     gpaw_calc,
+    spinchannel,
     prefix,
     ibstart,
     ibend,
@@ -458,6 +465,7 @@ def cli(
         spinor=spinor,
         calculate_traces=True,
         code=code,
+        spin_channel=spinchannel, 
         EF=ef,
         onlysym=onlysym,
         refUC=refuc,
