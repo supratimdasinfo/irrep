@@ -303,6 +303,7 @@ class BandStructure:
             NBin = max(nband)
 
         elif code == "espresso":
+            print(f"[DEBUG] Using Quantum Espresso interface, spin_channel = {spin_channel}")
             if spin_channel is not None:
                 spin_channel = spin_channel.lower()
             if spin_channel == 'down':
